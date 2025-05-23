@@ -2,7 +2,6 @@ package br.com.APIUsuario.model.entity
 
 import java.time.LocalDateTime
 
-
 data class Tarefa(
 
     val idTarefa: String,

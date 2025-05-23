@@ -2,7 +2,6 @@ package br.com.APIUsuario.model.dto
 
 import jakarta.validation.constraints.NotBlank
 
-
 data class TarefaCreateRequestDTO(
     @NotBlank
     val nomeTarefa: String,

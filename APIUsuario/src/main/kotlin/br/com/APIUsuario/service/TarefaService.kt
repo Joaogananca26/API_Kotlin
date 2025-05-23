@@ -1,14 +1,31 @@
 package br.com.APIUsuario.service
 
-import br.com.APIUsuario.model.dto.TarefaCreateRequestDTO
-import br.com.APIUsuario.model.dto.TarefaCreateResponseDTO
+
 import br.com.APIUsuario.model.entity.Tarefa
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories
+import br.com.APIUsuario.repository.TarefaRepository
+import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
-@EnableJpaRepositories
-class TarefaService {
+@Service
+class TarefaService(val repository: TarefaRepository) {
 
-    fun cadastrarTarefa(tarefaRequest: TarefaCreateRequestDTO): TarefaCreateResponseDTO {
+    fun cadastrarTarefa (tarefa: Tarefa): Tarefa {
+        return repository.save(tarefa)
     }
+
+    fun listarTarefas(): List<Tarefa> {
+        return repository.findAll()
+    }
+
+    fun listarTarefaPorId(@PathVariable idTarefa: String): Tarefa{
+        return repository.findById(idTarefa)
+            .orElseThrow()
+    }
+
 
 }
