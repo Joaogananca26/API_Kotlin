@@ -1,15 +1,10 @@
-package br.com.APIUsuario.service
+package br.com.APITarefa.service
 
 
-import br.com.APIUsuario.model.entity.Tarefa
-import br.com.APIUsuario.repository.TarefaRepository
-import org.springframework.http.ResponseEntity
+import br.com.APITarefa.model.entity.Tarefa
+import br.com.APITarefa.repository.TarefaRepository
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
 
 @Service
 class TarefaService(val repository: TarefaRepository) {

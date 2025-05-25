@@ -1,4 +1,4 @@
-package br.com.APIUsuario.model.dto
+package br.com.APITarefa.model.dto
 
 import jakarta.validation.constraints.NotBlank
 
@@ -14,14 +14,5 @@ data class TarefaCreateRequestDTO(
 
     @NotBlank
     val prioridadeTarefa: String,
-
-    @NotBlank
-    val diaCriacaoTarefa: Int,
-
-    @NotBlank
-    val mesCriacaoTarefa: Int,
-
-    @NotBlank
-    val anoCriacaoTarefa: Int
 
 )

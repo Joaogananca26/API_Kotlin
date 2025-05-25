@@ -1,4 +1,4 @@
-package br.com.APIUsuario
+package br.com.APITarefa
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
