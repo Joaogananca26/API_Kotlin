@@ -1,7 +1,6 @@
 package br.com.APITarefa.model.entity
 
 import lombok.Getter
-import java.time.LocalDateTime
 
 @Getter
 data class Tarefa(
