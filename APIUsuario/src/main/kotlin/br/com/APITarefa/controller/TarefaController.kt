@@ -1,6 +1,8 @@
 package br.com.APITarefa.controller
 
 
+import br.com.APITarefa.dto.request.CadastrarTarefaRequest
+import br.com.APITarefa.dto.response.CadastrarTarefaResponse
 import br.com.APITarefa.model.entity.Tarefa
 import br.com.APITarefa.repository.TarefaRepository
 import org.apache.coyote.Response
@@ -21,35 +23,7 @@ import org.springframework.web.bind.annotation.RestController
 class TarefaController(private val repository: TarefaRepository) {
 
     @PostMapping
-    fun criarTarefa(@RequestBody tarefa: Tarefa) = repository.save(tarefa)
-
-    @GetMapping
-    fun listarTodasAsTarefas(): List<Tarefa> = repository.findAll()
-
-    @GetMapping("/tarefas/{id}")
-    fun listarTarefaPorId(@PathVariable id: String) : ResponseEntity<Tarefa> =
-        repository.findById(id).map {
-            ResponseEntity.ok(it)
-        } .orElse(ResponseEntity.notFound().build())
-
-    @PutMapping("/tarefas/{id}")
-    fun atualizarTarefa(@PathVariable id: String, @RequestBody tarefa: Tarefa) : ResponseEntity<Tarefa> =
-        repository.findById(id).map {
-            val tarefaParaAtualizar = it.copy(
-                idTarefa = it.idTarefa,
-                nomeTarefa = it.nomeTarefa,
-                descricaoTarefa = it.descricaoTarefa,
-                prioridadeTarefa = it.prioridadeTarefa,
-                nomeUsuarioTarefa = it.nomeUsuarioTarefa
-            )
-            ResponseEntity.ok(repository.save(tarefaParaAtualizar))
-        }.orElse(ResponseEntity.notFound().build())
-
-    @DeleteMapping("/tarefas/{id}")
-    fun deletarTarefaPorId(@PathVariable id: String) : ResponseEntity<Void> =
-        repository.findById(id).map {
-            repository.delete(it)
-            ResponseEntity<Void>(HttpStatus.OK)
-        }.orElse(ResponseEntity.notFound().build())
-
+    fun criarTarefa(@RequestBody tarefaRequest: CadastrarTarefaRequest): ResponseEntity<CadastrarTarefaResponse> {
+        val tarefa: String = tarefaRequest.idTarefa
+    }
 }
