@@ -1,6 +1,5 @@
 package br.com.APITarefa.model.dto
 
-import java.time.LocalDateTime
 
 data class TarefaCreateResponseDTO(
     val idTarefa: String,
