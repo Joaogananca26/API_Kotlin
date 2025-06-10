@@ -1,9 +1,14 @@
 package br.com.APITarefa.controller
 
 
+<<<<<<< HEAD
 import br.com.APITarefa.config.ModelMapperConfig
 import br.com.APITarefa.model.dto.TarefaCreateRequestDTO
 import br.com.APITarefa.model.dto.TarefaCreateResponseDTO
+=======
+import br.com.APITarefa.dto.request.CadastrarTarefaRequest
+import br.com.APITarefa.dto.response.CadastrarTarefaResponse
+>>>>>>> refs/remotes/origin/main
 import br.com.APITarefa.model.entity.Tarefa
 import br.com.APITarefa.repository.TarefaRepository
 import br.com.APITarefa.service.TarefaService
@@ -26,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController
 class TarefaController(private val service: TarefaService) {
 
     @PostMapping
+<<<<<<< HEAD
     fun criarTarefa(@RequestBody dto: TarefaCreateRequestDTO) : ResponseEntity<TarefaCreateResponseDTO> {
         val tarefa = Tarefa(dto.nomeTarefa, dto.nomeUsuarioTarefa, dto.descricaoTarefa, dto.prioridadeTarefa)
         service.cadastrarTarefa(tarefa)
@@ -55,4 +61,9 @@ class TarefaController(private val service: TarefaService) {
         service.listarTarefaPorId(id)
     }
 
+=======
+    fun criarTarefa(@RequestBody tarefaRequest: CadastrarTarefaRequest): ResponseEntity<CadastrarTarefaResponse> {
+        val tarefa: String = tarefaRequest.idTarefa
+    }
+>>>>>>> refs/remotes/origin/main
 }
