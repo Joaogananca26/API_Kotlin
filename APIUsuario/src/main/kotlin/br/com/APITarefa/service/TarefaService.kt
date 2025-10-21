@@ -1,6 +1,7 @@
 package br.com.APITarefa.service
 
 
+import br.com.APITarefa.exception.TarefaNotFoundException
 import br.com.APITarefa.model.entity.Tarefa
 import br.com.APITarefa.repository.TarefaRepository
 import org.springframework.stereotype.Service
@@ -17,7 +18,7 @@ class TarefaService(val repository: TarefaRepository) {
             descricaoTarefa = tarefa.descricaoTarefa,
             nomeUsuarioTarefa = tarefa.nomeUsuarioTarefa,
             prioridadeTarefa = tarefa.prioridadeTarefa,
-            dataHoraTarefa = LocalDateTime.now()
+            dataHoraCriacaoTarefa = LocalDateTime.now()
         )
         return repository.save(tarefa)
     }
@@ -28,7 +29,8 @@ class TarefaService(val repository: TarefaRepository) {
 
     fun listarTarefaPorId(@PathVariable idTarefa: String): Tarefa{
         return repository.findById(idTarefa)
-            .orElseThrow()
+            .orElseThrow { TarefaNotFoundException(idTarefa) }
+
     }
 
     fun deletarTarefa(idTarefa: String){

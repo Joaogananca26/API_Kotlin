@@ -10,5 +10,5 @@ data class CadastrarTarefaResponse(
     var nomeUsuarioTarefa: String,
     var prioridadeTarefa: String,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    var dataHoraTarefa: LocalDateTime
+    var dataHoraCriacaoTarefa: LocalDateTime
 )

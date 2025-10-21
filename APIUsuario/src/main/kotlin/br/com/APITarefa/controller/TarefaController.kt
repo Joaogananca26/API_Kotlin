@@ -19,7 +19,7 @@ class TarefaController(private val service: TarefaService) {
     @GetMapping("/listar")
     fun listarTarefas(): List<Tarefa> = service.listarTarefas()
 
-    @PostMapping("/cadastrar", consumes = ["application/json"], produces = ["application/json"])
+    @PostMapping("/cadastrar")
     fun cadastrarTarefa(@RequestBody @Valid req: CadastrarTarefaRequest): ResponseEntity<CadastrarTarefaResponse> {
 
         val nova = Tarefa(
@@ -37,7 +37,7 @@ class TarefaController(private val service: TarefaService) {
             descricaoTarefa = salva.descricaoTarefa,
             nomeUsuarioTarefa = salva.nomeUsuarioTarefa,
             prioridadeTarefa = salva.prioridadeTarefa,
-            dataHoraTarefa = salva.dataHoraTarefa
+            dataHoraCriacaoTarefa = salva.dataHoraCriacaoTarefa
         )
 
         return ResponseEntity.status(HttpStatus.CREATED).body(resp)
@@ -69,7 +69,7 @@ class TarefaController(private val service: TarefaService) {
             descricaoTarefa = salva.descricaoTarefa,
             nomeUsuarioTarefa = salva.nomeUsuarioTarefa,
             prioridadeTarefa = salva.prioridadeTarefa,
-            dataHoraTarefa = salva.dataHoraTarefa
+            dataHoraCriacaoTarefa = salva.dataHoraCriacaoTarefa
         )
 
         return ResponseEntity.ok(resp)

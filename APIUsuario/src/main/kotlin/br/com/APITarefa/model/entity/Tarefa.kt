@@ -32,5 +32,5 @@ data class Tarefa(
 
     @field:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "data_hora_tarefa", nullable = false, updatable = false)
-    var dataHoraTarefa: LocalDateTime = LocalDateTime.now()
+    var dataHoraCriacaoTarefa: LocalDateTime = LocalDateTime.now()
 )
